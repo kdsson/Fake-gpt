@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" w-tid="1">
+<head w-tid="3">
+  
+
+<link rel="stylesheet" href="https://api.websim.com/fonts.css?v=ca6af9b6b20ca03a46daa8dc1865086142fbbbeb">
+<style class="websim-injected websim-ios-mobile-fix">
+/* iOS zoom prevention and overscroll behavior - injected by WebSim */
+html, body {
+  touch-action: pan-x pan-y;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+}
+input, textarea, select {
+  font-size: max(1rem, 16px) !important;
+}
+</style>
+<script class="websim-injected">__WEBSIM_DATA__={"home":false,"hostOrigin":"https://websim.com","apiOrigin":"https://api.websim.com","isTopLevelFrame":false,"project_id":"cfg62etllwmb7mjlt1uf","preview":true,"activityCaptureMode":"on","route":{"type":"project","id":"cfg62etllwmb7mjlt1uf"},"baseUrl":"https://websim.com/p/cfg62etllwmb7mjlt1uf"}</script>
+<script class="websim-injected" src="https://api.websim.com/dist/index.js?v=ca6af9b6b20ca03a46daa8dc1865086142fbbbeb"></script>
+<meta charset="utf-8" w-tid="5"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" w-tid="7"/>
+  <meta name="theme-color" content="#080808" w-tid="9"/>
+  <link rel="icon" href="data:," w-tid="11"/>
+  <title w-tid="13">Fake ChatGPT</title>
+  <link rel="stylesheet" href="style.css" w-tid="15"/>
+  <script type="module" src="app.js" w-tid="17"></script>
+</head>
+<body w-tid="19">
+  <aside class="rail" aria-label="Main navigation" w-tid="21">
+    <button class="brand icon-button" id="real-mode" aria-label="Chat with real AI" title="Real AI chat" w-tid="23"><span class="knot" w-tid="25">✳</span></button>
+    <div class="rail-tools" w-tid="27">
+      <button class="icon-button active" id="new-chat" aria-label="New fake chat" title="New fake chat" w-tid="29"><span class="pencil" w-tid="31">✎</span></button>
+      <button class="icon-button" aria-label="Search" title="Search" w-tid="33"><span class="search-icon" w-tid="35"></span></button>
+      <button class="icon-button" aria-label="Explore" title="Explore" w-tid="37"><span class="sparkle" w-tid="39">✧</span></button>
+      <button class="icon-button" id="library-open" aria-label="Saved chats" title="Saved chats" w-tid="41"><span class="library-icon" w-tid="43">▥</span></button>
+    </div>
+    <button class="avatar" aria-label="Profile" w-tid="45"></button>
+  </aside>
+  <main class="app" w-tid="47">
+    <header class="topbar" w-tid="49">
+      <button class="mobile-menu icon-button" aria-label="Open menu" w-tid="51">☰</button>
+      <div class="chat-title import-status" id="import-status" aria-live="polite" w-tid="53"></div>
+      <div class="top-actions" w-tid="55">
+        <button class="offer fake-only" id="quote-open" aria-label="Create a chatbot quote" title="Create a chatbot quote" w-tid="57"><span w-tid="59">♙</span></button>
+        <button class="icon-button more fake-only" id="download-chat" aria-label="Download chat as image" title="Download chat as image" w-tid="61">···</button>
+        <button class="icon-button share fake-only" id="import-image" aria-label="Upload chat image" title="Upload chat image" w-tid="63">↑</button>
+      </div>
+    </header>
+    <section class="conversation" aria-label="Conversation" w-tid="65">
+      <div class="messages" id="messages" aria-label="Empty conversation" w-tid="67"></div>
+      <form class="composer" id="chat-form" w-tid="69">
+        <button type="button" class="attach" id="upload-image" aria-label="Attach image" title="Attach image" w-tid="71">＋</button>
+        <textarea id="prompt" rows="1" aria-label="Message" w-tid="73"></textarea>
+        <div class="attach-preview" id="attach-preview" hidden w-tid="75"><img id="attach-preview-img" alt="Attached image preview" w-tid="77"/><button type="button" id="remove-attachment" aria-label="Remove attached image" w-tid="79">×</button></div>
+        <button type="button" class="mic" aria-label="Save fake chat" title="Save fake chat" w-tid="81"><span w-tid="83"></span></button>
+        <button class="send" type="submit" aria-label="Send message" w-tid="85">↑</button>
+      </form>
+    </section>
+    <input id="chat-image" type="file" accept="image/*" hidden w-tid="87"/>
+    <input id="attachment-file" type="file" accept="image/*" hidden w-tid="89"/>
+  </main>
+  <dialog class="library-dialog" id="library-dialog" aria-labelledby="library-heading" w-tid="91">
+    <div class="library-panel" w-tid="93">
+      <header class="library-header" w-tid="95"><h1 id="library-heading" w-tid="97">Chats</h1><button type="button" class="dialog-close" id="library-close" aria-label="Close" w-tid="99">×</button></header>
+      <section class="library-section" w-tid="101"><h2 w-tid="103">AI</h2><div class="library-list" id="real-chat-list" w-tid="105"></div></section>
+      <section class="library-section" w-tid="107"><h2 w-tid="109">Fake AI</h2><div class="library-list" id="fake-chat-list" w-tid="111"></div></section>
+    </div>
+  </dialog>
+  <dialog class="quote-dialog" id="quote-dialog" aria-labelledby="quote-heading" w-tid="113">
+    <form id="quote-form" method="dialog" w-tid="115">
+      <button class="dialog-close" type="button" id="quote-close" aria-label="Close" w-tid="117">×</button>
+      <h1 id="quote-heading" w-tid="119">Create a chatbot quote</h1>
+      <label for="quote-text" w-tid="121">Choose what the chatbot says</label>
+      <textarea id="quote-text" rows="5" placeholder="Type your quote…" required w-tid="123"></textarea>
+      <button class="create-quote" type="submit" w-tid="125">Add quote</button>
+    </form>
+  </dialog>
+</body>
+</html>
